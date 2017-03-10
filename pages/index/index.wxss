@@ -1,0 +1,429 @@
+/**index.wxss**/
+
+page {
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+}
+
+.activity-0, .activity-1, .activity-2, .activity-3, .activity-4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+}
+
+.activity-0 {
+  max-height: 100%;
+  overflow: hidden;
+  background-color: #3caa35;
+}
+
+.input-nub {
+  display: flex;
+  flex-direction: row;
+  width: 500rpx;
+}
+
+.scan-btn {
+  width: 108rpx;
+  height: 108rpx;
+  margin: 0 0 0 20rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-bg {
+  width: 86rpx;
+  height: 86rpx;
+  display: inline-block;
+  position: absolute;
+  top: 12rpx;
+  left: 12rpx;
+}
+
+.scan-line {
+  width: 86rpx;
+  height: 86rpx;
+  display: inline-block;
+  position: absolute;
+  top: 12rpx;
+  left: 12rpx;
+  animation: scan 1.8s linear 0s infinite;
+}
+
+.get-locker {
+  display: flex;
+  flex-direction:  row;
+  background-color: #3caa35;
+  padding: 10rpx 0 20rpx;
+  align-items: center;
+  margin-top: -5rpx;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.banner-bg {
+  width: 100%;
+  background-color: #fff;
+}
+
+.banner-wrapper {
+  background-color: #3caa35;
+  border-radius: 40rpx 40rpx 0 0;
+  text-align: center;
+}
+
+.banner-image {
+  width: 463rpx;
+  height: 212rpx;
+  margin: 150rpx auto 70rpx;
+}
+
+.short-id {
+  height: 86rpx;
+  width: 370rpx;
+  text-align: center;
+  background: #fff;
+  font-size: 20px;
+  margin-right: 20rpx;
+  margin-top: 3rpx;
+}
+
+.lock-short-id {
+  margin-bottom: 6px;
+}
+
+.form {
+  width: 100%;
+}
+
+.input-short-id {
+  flex-direction: row;
+  display: flex;
+}
+
+.submit-short-id {
+  height: 92rpx;
+  width: 110rpx;
+  padding: 0 16rpx;
+  border-radius: 30rpx;
+  background-color: #fff;
+}
+
+.submit-img {
+  width: 52rpx;
+  height: 52rpx;
+  margin: 20rpx 0;
+}
+.locker-img{
+  position: relative
+}
+.locker-bg{
+  width:520rpx;
+  height:335rpx
+}
+.locker-nb{
+  position: absolute;
+  width:36rpx;
+  height:185rpx;
+  top:98rpx;
+  left:400rpx;
+  animation: biger 1.5s linear 0s infinite;
+  border: 1rpx solid red;
+  padding: 10rpx 0
+}
+.fee-table {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 2px;
+  width: 90%;
+}
+
+.car-img {
+  position: relative;
+}
+
+.gas {
+  position: absolute;
+  width: 98rpx;
+  height: 33rpx;
+  left: 242rpx;
+  top: 150rpx;
+  animation: shake 0.5s linear 0s infinite;
+}
+
+.wheel1, .wheel2 {
+  position: absolute;
+  width: 39rpx;
+  height: 40rpx;
+  animation: roll 2s linear 0s infinite;
+  transform-origin: 52% 50%;
+}
+
+.wheel1 {
+  left: 48rpx;
+  top: 155rpx;
+}
+
+.wheel2 {
+  left: 173rpx;
+  top: 155rpx;
+}
+
+.park-img {
+  width: 311rpx;
+  height: 165rpx;
+  margin: 50rpx auto 5rpx;
+}
+
+.parking-img {
+  width: 286rpx;
+  height: 165rpx;
+  margin: 130rpx auto 40rpx;
+}
+
+.fee-row {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+}
+
+.fee-item {
+  flex-wrap: nowrap;
+  font-size: small;
+  background-color: #1aad19;
+  margin: 1px 0;
+  padding: 2px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1rpx solid #fff;
+}
+
+.modal-wrp {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content {
+  width: 75%;
+  height: 490rpx;
+  margin-top: 283rpx;
+  background-color: #fff;
+  border-radius: 8rpx;
+  padding: 30rpx;
+}
+
+.modal-header {
+  font-size: 1.3em;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  padding-left: 320rpx;
+}
+.modal-info{
+  line-height: 2em;
+}
+.cancel,.check{
+  width:150rpx;
+  height:60rpx;
+  text-align: center;
+  line-height: 2em;
+  border-radius: 5rpx
+
+}
+.change-bg{
+  background-color: #eeeeee
+}
+.locker-up {
+  position: relative;
+  height: 311rpx;
+}
+
+.locker-bottom {
+  width: 148rpx;
+  height: 134rpx;
+  position: absolute;
+  top: 154rpx;
+  left: 224rpx;
+}
+
+.locker-top {
+  width: 123rpx;
+  height: 278rpx;
+  position: absolute;
+  top: 16rpx;
+  left: 260rpx;
+  transform: rotate(10deg);
+  -webkit-transform-origin: 72rpx 262rpx;
+  transform-origin: 72rpx 262rpx;
+  -webkit-animation: up 2s linear 0s ;
+  animation: up 2s linear 0s ;
+}
+
+.car-state {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.change-view {
+  color: #aaa;
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+.balance {
+  display: flex;
+  flex-direction: row;
+  padding-right: 60rpx;
+  margin-top: 10px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.success-icon {
+  margin: 100rpx auto 15rpx;
+}
+
+.back-btn, .leave-btn, .park-btn, .change-btn {
+  width: 90%;
+  margin-top: 15px;
+}
+.loading-up:after{
+  content: "";
+  border:10rpx solid #ffffff; 
+}
+.loading-up{
+  margin: 100rpx auto 40rpx
+}
+/*二维码动画*/
+
+@keyframes scan {
+  0% {
+    top: 14rpx;
+  }
+
+  18% {
+    top: -20rpx;
+  }
+
+  50% {
+    top: 14rpx;
+  }
+
+  68% {
+    top: 44rpx;
+  }
+
+  100% {
+    top: 14rpx;
+  }
+}
+
+@keyframes roll {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-90deg);
+  }
+
+  50% {
+    transform: rotate(-180deg);
+  }
+
+  75% {
+    transform: rotate(-270deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes shake {
+  0% {
+    left: 242rpx;
+    top: 151rpx;
+  }
+
+  12% {
+    left: 243rpx;
+    top: 149rpx;
+  }
+
+  25% {
+    left: 241rpx;
+    top: 150rpx;
+  }
+
+  37% {
+    left: 243rpx;
+    top: 151rpx;
+  }
+
+  50% {
+    left: 242rpx;
+    top: 149rpx;
+  }
+
+  62% {
+    left: 240rpx;
+    top: 150rpx;
+  }
+
+  75% {
+    left: 243rpx;
+    top: 151rpx;
+  }
+
+  87% {
+    left: 241rpx;
+    top: 149rpx;
+  }
+
+  100% {
+    left: 242rpx;
+    top: 150rpx;
+  }
+}
+@keyframes up{
+  0%{ transform: rotate(-80deg);}
+  50%{ transform: rotate(-45deg);}
+  100%{ transform: rotate(10deg);}
+}
+@keyframes biger{
+   0%{ transform: scale(1);}
+  50%{ transform:  scale(1.2);}
+  100%{ transform:  scale(1);}
+}

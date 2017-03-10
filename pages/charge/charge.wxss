@@ -1,0 +1,80 @@
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.my-money {
+  background-color: #3caa35;
+}
+
+.content-money {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+}
+
+.content-money label {
+  text-align: center;
+  margin-top: 40rpx;
+  font-size: 16px;
+  color: #ccc5bc;
+}
+
+.content-money text {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 60px;
+  color: #fff;
+   margin:30rpx auto
+}
+
+.explain {
+  display: flex;
+  height: 88rpx;
+  align-items: center;
+  padding-left: 26px;
+  color: #fff;
+  background-color: #64a557;
+}
+
+.explain text {
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.choice-money {
+  display: flex;
+  flex-direction: row;
+  height: 280rpx;
+  align-items: center;
+  padding: 0 10rpx;
+}
+
+.money-label {
+  display: flex;
+  width: 200rpx;
+  height: 130rpx;
+  border-style: solid;
+  border-width: 1rpx;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}
+
+.btn-charge {
+  width: 90%;
+  margin-top: 40rpx;
+}
+
+.pressed {
+  background-color: #3caa35;
+  border-color: #3caa35;
+  color: white;
+}
+
+.normal {
+  border-color:  #3caa35;
+  color: #3caa35;
+}

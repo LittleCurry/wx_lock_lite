@@ -1,0 +1,28 @@
+
+<!--pages/precord/precord.wxml-->
+
+<!--无停车记录-->
+<view class="no-pecord" hidden="{{step == 0?false:true}}" style="text-align:center;padding-top:30px;color:#aaa">
+  <text>暂无停车记录</text>
+  <view class="no-pecord-icon" style="margin-top:30px">
+    <icon type="clear" size="50" color="#dddddd" />
+  </view>
+</view>
+
+<!--停车记录-->
+<view hidden="{{step == 1?false:true}}" class="content">
+  <view wx:for="{{parkList}}" wx:key="" class="park-row">
+    <view style="flex-direction:column;">
+      <view class="park-time flex-item ">
+        <icon class="begin-time" type="waiting_circle" color=" #3caa35" size="20" /><span>开始时间：{{item.beginTime}}</span>  </view>
+      <view class="park-time flex-item ">
+        <icon class="end-time" type="waiting_circle" color=" #3caa35" size="20" /><span>结束时间：{{item.endTime}}</span>  </view>
+    </view>
+    <view class="flex-wrp" >
+      <view class="park-item flex-item ">
+      <image class="time-icon" src="/image/spend-time.png" mode="aspectFit"></image><span>时间：{{item.time}}</span></view>
+      <view class="park-item flex-item ">
+       <image class="money-icon" src="/image/money.png" mode="aspectFit"></image><span>消费：{{item.money}}元</span></view>
+    </view>
+  </view>
+</view>

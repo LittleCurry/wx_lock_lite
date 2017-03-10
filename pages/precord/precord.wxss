@@ -1,0 +1,49 @@
+/* pages/precord/precord.wxss */
+
+.content {
+  background-color: #eaeaea;
+  font-size: 14px;
+}
+
+.park-row {
+  margin-top: 10px;
+  border-bottom:1rpx solid #64a557;
+  border-top:1rpx solid #64a557;
+  padding: 10px 5px 5px;
+  background-color: #fff;
+}
+
+.park-time {
+  line-height: 40rpx;
+  position: relative;
+  padding-left: 46rpx;
+    color: #888;
+}
+
+.begin-time, .end-time {
+  height: 40rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.flex-wrp {
+  flex-direction: row;
+  display: flex;
+  padding: 5px 0;
+  line-height: 40rpx
+}
+
+.park-item {
+  width: 50%;
+  position: relative;
+  padding-left: 46rpx;
+}
+
+.time-icon, .money-icon{
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  top:-2rpx;
+  left:0
+  }

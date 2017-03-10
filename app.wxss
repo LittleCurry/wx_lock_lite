@@ -1,0 +1,9 @@
+/**app.wxss**/
+
+.item-line {
+  height: 1px;
+  margin-left: 16px;
+  margin-right: 16px;
+  background: #bbbbbb;
+  transform: scaleY(0.3)
+}

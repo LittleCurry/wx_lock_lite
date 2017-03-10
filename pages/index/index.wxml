@@ -1,0 +1,138 @@
+
+<!--index.wxml-->
+<view class="container">
+
+  <!--<view class="balance">
+    <text style="text-align:right">余额：{{balance}}￥</text>
+    <navigator url="/pages/charge/charge" open-type="navigate" style="color:blue; margin-left:20px;">充值</navigator>
+  </view>-->
+
+  <!--初始界面 step == 0?false:true-->
+  <view hidden="{{step == 0?false:true}}" class="activity-0">
+    <view class="banner-bg">
+      <view class="banner-wrapper" style="width:100%">
+        <image class="banner-image" src="/image/banner.png" mode="aspectFit" />
+      </view>
+    </view>
+    <view class="get-locker">
+      <view class="input-nub">
+        <form report-submit="false" bindsubmit="shortIdSubmit">
+          <view class="input-short-id">
+            <view class="flex-item">
+              <input class="flex-item short-id" bindinput="checkContent" name="shortId" value="{{input_value}}" type="number" placeholder-style="color:#757575;font-size:15px" placeholder="请输入锁上5位编码" />
+            </view>
+            <view class="flex-item">
+              <button class="submit-short-id" formType="submit" disabled="{{disabled}}">
+                <loading hidden="{{hidden}}" bindchange="loadingChange">
+                  报价加载中...
+                </loading>
+                <image class="submit-img" src="{{src}}" mode="aspectFit"></image>
+              </button>
+            </view>
+          </view>
+        </form>
+      </view>
+      <view class="scan-btn" bindtap="saoMa" type="primary">
+        <image class="scan-bg" src="/image/scancode-bg.png" mode="aspectFit"></image>
+        <image class="scan-line" src="/image/scancode-line.png" mode="aspectFit"></image>
+        <span style="vertical-align: middle;"></span> 
+      </view>
+    </view>
+    <view class="locker-img">
+     <image class="locker-bg" src="/image/locker.png" mode="aspectFit"></image>
+     <image class="locker-nb" src="/image/locker-nb.png" mode="aspectFit"></image>
+     </view>
+  </view>
+
+  <!--收费介绍 step == 1?false:true-->
+  <view hidden="{{step == 1?false:true}}" class="activity-1">
+    <view class="car-img">
+      <image class="park-img" src="/image/park_car.png" mode="aspectFit" />
+      <image class="wheel1" src="/image/wheel.png" mode="aspectFit" />
+      <image class="wheel2" src="/image/wheel.png" mode="aspectFit" />
+      <image class="gas" src="/image/gas.png" mode="aspectFit" />
+    </view>
+    <view class="lock-short-id">车位编号:{{short_id}}</view>
+    <view class="fee-table">
+      <view class="fee-row">
+        <view class="fee-item" style="width:100%">收费标准</view>
+      </view>
+      <view class="fee-row">
+        <view class="fee-item" style="width:100%;">
+          <view class="fee-row">
+            <view class="fee-item" style="width:40%;">收费时段</view>
+            <view class="fee-item" style="width:20%;">单价(元/小时)</view>
+            <view class="fee-item" style="width:20%;">封顶价(元)</view>
+            <view class="fee-item" style="width:21%;">时间单位</view>
+          </view>
+          <view wx:for="{{feelist}}" wx:key="" class="fee-row">
+            <view class="fee-item" style="width:40%;">{{item.time}}</view>
+            <view class="fee-item" style="width:20%;">{{item.unitPrice}}</view>
+            <view class="fee-item" style="width:20%;">{{item.cappedPrice}}</view>
+            <view class="fee-item" style="width:21%;">{{item.unit}}</view>
+          </view>
+          <view class="fee-row">
+            <view class="fee-item" style="width:100%;margin:1px 0 0 0;">备注</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="form">
+      <form report-submit="true" bindsubmit="confirmParking">
+        <loading hidden="{{hidden}}" bindchange="loadingChange">
+          落锁中...
+        </loading>
+        <button class="park-btn" formType="submit" type="primary">请落锁，我要停车</button>
+      </form>
+      <button class="change-btn" type="default" bindtap="changeLocker">换一把锁</button>
+    </view>
+  </view>
+
+  <!--点击停车后 step == 2?false:true-->
+  <view hidden="{{step == 2?false:true}}" class="activity-2">
+    <image class="parking-img" src="/image/parking_car.png" mode="aspectFit" />
+    <text class="car-state">您已停车：{{state}}</text>
+    <text class="car-state">共计：{{money}}元</text>
+    <button class="leave-btn" type="primary" bindtap="stopParking">结束停车,升起地锁
+    </button>
+
+    <!--停车地锁升起模态框-->
+    <view hidden="{{modal == 1?false:true}}" class="modal-wrp">
+      <view class="modal-content">
+        <view class="modal-header">
+          请确认车已开出车位!
+        </view>
+        <view class="locker-up">
+          <image class="locker-bottom" src="/image/locker-bottom.png" mode="aspectFit"></image>
+          <image class="locker-top" src="/image/locker-top.png" mode="aspectFit"></image>
+        </view>
+        <text class="modal-info">点击确认车位锁将升起并结束计费</text>
+        <view class="modal-footer">
+          <view class="cancel" hover="true" hover-class="change-bg" bindtap="cancelLeave">取消</view>
+          <view class="check" hover="true" hover-class="change-bg" style="color:#09bb07" bindtap="checkLeave">确认</view>
+        </view>
+      </view>
+    </view>
+    <loading hidden="{{hidden}}" bindchange="loadingChange">
+      正在结算...
+    </loading>
+  </view>
+
+  <!--觀察鎖是否升起-->
+
+  <!--点击结束停车后 step == 3?false:true-->
+  <view hidden="{{step == 3?false:true}}" class="activity-3">
+    <icon class="success-icon" type="success" size="100" />
+    <text class="car-state">您已停车：{{state}}</text>
+    <text class="car-state">消费：{{money}}元</text>
+    <button class="back-btn" type="primary" bindtap="backHome">确认</button>
+  </view>
+
+  <!--点击结束停车后 step == 3?false:true-->
+  <view hidden="{{modal == 2?false:true}}" class="activity-4" class="modal-wrp">
+    <view class="modal-content">
+      <button class="loading-up" loading="true" style="background-color:white">起锁中</button>
+      <progress percent="100" active show-info />
+    </view>
+  </view>
+</view>

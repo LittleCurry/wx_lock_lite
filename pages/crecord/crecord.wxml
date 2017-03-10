@@ -1,0 +1,16 @@
+
+<!--pages/crecord/crecord.wxml-->
+<view hidden="{{step == 0?false:true}}" style="text-align:center;padding-top:30px;color:#aaa">
+  <text>暂无充值记录</text>
+  <view style="margin-top:30px">
+    <icon type="clear" size="50" color="#dddddd"/>
+  </view>
+</view>
+<scroll-view scroll-y="true" hidden="{{step == 1?false:true}}">
+  <view wx:for="{{cRecordList}}" wx:key="">
+    <view class="item-style">
+      <text class="item-money">充值记录：{{item.money}}元</text>
+      <text class="item-time">时间：{{item.time}}</text>
+    </view>
+  </view>
+</scroll-view>

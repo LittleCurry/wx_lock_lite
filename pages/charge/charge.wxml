@@ -1,0 +1,23 @@
+
+<!--charge.wxml-->
+<view class="content">
+  <view class="my-money">
+    <view style="width: 100%">
+      <view class="content-money">
+        <label>我的余额(元)</label>
+        <text>{{balance}}</text>
+      </view>
+    </view>
+    <view class="explain">
+      <text>充值金额：{{chargeMoney}} 元</text>
+    </view>
+  </view>
+  <view class="choice-money">
+    <view style="width:100%; display: flex;flex-direction: column;align-items: center;" wx:for="{{isSelect}}" wx:key="">
+
+      <!--选择充值金额-->
+      <view id="{{item.id}}" class="{{item.select? 'pressed': 'normal'}} money-label" bindtap="changeMoney">{{item.id}}元</view>
+    </view>
+  </view>
+  <button class="btn-charge " type="primary" bindtap="toCharge">立即充值</button>
+</view>
